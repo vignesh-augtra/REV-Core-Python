@@ -7,7 +7,7 @@ class Flower:
         return "The color is " + self.color
 
     def get_name(self):
-        return "The name is " + self.name
+        return "The Flower name is " + self.name
 
 jasmine_flower = Flower("Jasmine", "White")
 rose_flower = Flower("Rose", "Red")
