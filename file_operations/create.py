@@ -1,0 +1,1 @@
+myFile = open("sample1.txt", "x")
