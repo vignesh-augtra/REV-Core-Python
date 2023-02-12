@@ -7,4 +7,27 @@ def showWelcomeText(request):
 
 def showGoodByeText(request):
     template = loader.get_template("bye.html")
-    return HttpResponse(template.render())
+    context = {
+        "message" : "Hi from Django",
+        "gender":"male",
+        "mark":95, # 35, 70, 90,
+        "age":12,
+        "nationality":"indian",
+        "students":["vignesh", "karthik"],
+        "studentName" : "vignesh",
+        "trainers": [
+        {
+        "name":"Vignesh",
+        "city":"Cbe"
+        },
+        {
+        "name":"Karthik",
+        "city":"Chennai"
+        },
+        {
+        "name":"Naveen",
+        "city":"Erode"
+        }
+        ]
+    }
+    return HttpResponse(template.render(context))

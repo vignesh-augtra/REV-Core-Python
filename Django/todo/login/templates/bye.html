@@ -11,25 +11,92 @@
     </head>
 
     <body>
-        <h1 class="my-heading">Good bye from Django Template</h1>
+        <h1 class="my-heading"> {{message}} </h1>
+
+        {% with occasion="good evening" %}
+        <h1> {{occasion}} </h1>
+        {% endwith %}
+
+        {% if gender == "male" %}
+            <h1>Him</h1>
+            <table border="1">
+                <thead>
+                    <tr>
+                        <td style="color:yellowgreen">S.No</td>
+                        <td>Tech</td>
+                    </tr>
+                </thead>
+    
+                <tbody>
+                    <tr>
+                        <td>01</td>
+                        <td>Python</td>
+                    </tr>
+                    <tr>
+                        <td>02</td>
+                        <td>Django</td>
+                    </tr>
+                </tbody>
+            </table>
+        {% else %}
+            <h1>Her</h1>
+        {% endif %}
+
+
+        {% if mark <= 35 %}
+            <h1>Fail</h1>
+        {% elif mark <= 70 %}
+            <h1>Average</h1>
+        {% elif mark <= 90 %}
+            <h1>Good</h1>
+        {% else  %}
+            <h1>Excellent</h1>
+        {% endif %}
+
+
+        {% if nationality == "indian" and age >= 18 %}
+            <h1>Eligible</h1>
+        {% else %}
+            <h1>Not Eligible</h1>
+        {% endif %}
+       
+
+        {% if studentName in students %}
+            <h1>True</h1>
+        {% else %}
+            <h1>False</h1>
+        {% endif %}
+
+        <h1>Students List :</h1>
+
+        {% for student in students %}
+            <p> {{student}} </p>
+        {% endfor %}
+
+        <h1>Trainers List :</h1>
+
+        {% comment "this table demonstarates the trainers list" %}
+            <h1>Hello world</h1>
+        {% endcomment %}
+
         <table border="1">
             <thead>
                 <tr>
-                    <td style="color:yellowgreen">S.No</td>
-                    <td>Tech</td>
+                    <th>Name</th>
+                    <th>City</th>
                 </tr>
             </thead>
-
             <tbody>
-                <tr>
-                    <td>01</td>
-                    <td>Python</td>
-                </tr>
-                <tr>
-                    <td>02</td>
-                    <td>Django</td>
-                </tr>
+                {% for trainer in trainers %}
+                    <tr>
+                        <td> {{trainer.name}} </td>
+                        <td> {{trainer.city}} </td>
+                    </tr>
+                {% endfor %}
             </tbody>
         </table>
+
+        
+
     </body>
 </html>
