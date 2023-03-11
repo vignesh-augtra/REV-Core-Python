@@ -1,5 +1,6 @@
 from django.http import HttpResponse
 from django.template import loader
+from django import forms
 
 def showWelcomeText(request):
     return HttpResponse("Hello world from Django")
@@ -31,3 +32,10 @@ def showGoodByeText(request):
         ]
     }
     return HttpResponse(template.render(context))
+
+def formHandling(request):
+    template = loader.get_template("form.html")
+    context = {
+        "username" : forms.CharField()
+    }
+    return HttpResponse(template.render())

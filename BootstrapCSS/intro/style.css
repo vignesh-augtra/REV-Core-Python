@@ -1,0 +1,22 @@
+:root{
+    --my-color : #36ab54;
+    --my-secondary-color : #ab6f36;
+}
+
+.violet-btn{
+    background-color: var(--my-color);
+}
+
+.violet-btn:hover{
+    background-color: var(--my-secondary-color);
+}
+
+.flex-div{
+    display: flex;
+    justify-content: space-between;
+}
+
+.my-flex{
+    display: flex;
+    align-items: flex-end;
+}

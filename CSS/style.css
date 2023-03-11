@@ -1,0 +1,52 @@
+/* Element Selector */
+
+
+:root{
+    --btn-color:green
+}
+
+h1{
+    color: red;
+}
+
+.bold-text{
+    font-weight: 700;
+}
+
+.green-color{
+    color: green;
+}
+
+.profile-card h4{
+    color: aquamarine;
+}
+
+.profile-card{
+    background-color: white;
+    border-radius: 16px;
+    border: 2px dashed red;
+    padding-left: 25px;
+    padding-top: 50px;
+    padding-bottom: 20px;
+    padding-top: 30px;
+    padding: 10px 20px 30px 40px;
+    margin: 25px;
+}
+
+#address{
+    font-size: 50px;
+}
+
+button.stop{
+    background-color: red;
+    border: 1px solid red;
+    border-radius: 4px;
+    color: white;
+}
+
+/* Psudo selector */
+button.stop:hover{
+    background-color: var(--btn-color);
+    border-color: brown;
+    box-shadow: 3px 3px grey;
+}
