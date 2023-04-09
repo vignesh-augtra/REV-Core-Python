@@ -2,6 +2,7 @@ from django.http import HttpResponse
 from django.template import loader
 from django import forms
 from django.db import connection
+from .  import models
 
 def showWelcomeText(request):
     return HttpResponse("Hello world from Django")
@@ -39,18 +40,21 @@ def showGoodByeText(request):
     # Selecting (Read)
     # login_username = "vignesh"
     # login_password = "12345"
-    cursor.execute("select username, password, address from users") # reading all records
+    # cursor.execute("select username, password, address from users") # reading all records
+    d = models.Users.objects.raw(cursor.execute("select username, password, address from users"))
+    for x in d:
+        print(x)
     # cursor.execute("select username, password from users where username LIKE 'M%'") # reading records that has username which start with M
     # cursor.execute("select username, password from users where username = %s and password = %s", [login_username, login_password]) # reading one record that matches the given username and password
-    dataFromUsersTable = list(cursor.fetchall())
-    print(dataFromUsersTable)
+    # dataFromUsersTable = list(cursor.fetchall())
+    # print(dataFromUsersTable)
     context = {
         "message" : "Hi from Django",
         "gender":"male",
         "mark":95, # 35, 70, 90,
         "age":12,
         "nationality":"indian",
-        "usersFromDB" : dataFromUsersTable,
+        "usersFromDB" : [],
         "students":["vignesh", "karthik"],
         "studentName" : "vignesh",
         "trainers": [
